@@ -1,0 +1,6 @@
+.java-version
+*.jar
+*.class
+/lib/
+/classes/
+/target/

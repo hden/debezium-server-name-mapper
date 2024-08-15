@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  db:
+    image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
+    ports:
+     - 5432:5432
+    environment:
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=postgres
+  pubsub-emulator:
+    image: gcr.io/google.com/cloudsdktool/google-cloud-cli:emulators
+    command: "gcloud beta emulators pubsub start --project=emulator --host-port=0.0.0.0:8085"
+    ports:
+     - 8085:8085
