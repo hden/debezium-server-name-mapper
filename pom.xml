@@ -10,7 +10,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <version.debezium>2.7.1.Final</version.debezium>
+        <version.debezium>2.7.2.Final</version.debezium>
         <version.debezium.tag>2.7</version.debezium.tag>
         <version.quarkus>3.14.2</version.quarkus>
         <version.jandex>1.2.3</version.jandex>
