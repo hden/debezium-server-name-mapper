@@ -12,7 +12,7 @@
 
         <version.debezium>2.7.2.Final</version.debezium>
         <version.debezium.tag>2.7</version.debezium.tag>
-        <version.quarkus>3.14.4</version.quarkus>
+        <version.quarkus>3.15.0</version.quarkus>
         <version.jandex>1.2.3</version.jandex>
     </properties>
 
