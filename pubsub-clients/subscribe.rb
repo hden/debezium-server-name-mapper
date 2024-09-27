@@ -1,6 +1,6 @@
 require "google/cloud/pubsub"
 
-subscription_id = "sample-sub"
+subscription_id = "baz"
 
 pubsub = Google::Cloud::Pubsub.new(
   project_id: "prj-dev-xuan-cloud-pubsub-poc",

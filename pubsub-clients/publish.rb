@@ -1,6 +1,7 @@
 require "google/cloud/pubsub"
 
-topic_id = "ogasawara-manual-sample"
+# topic_id = "ogasawara-manual-sample"
+topic_id = "foobar"
 
 pubsub = Google::Cloud::Pubsub.new(
   project_id: "prj-dev-xuan-cloud-pubsub-poc",
