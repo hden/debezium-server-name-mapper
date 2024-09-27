@@ -1,7 +1,6 @@
-# GCPのcloud pub/subをsink指定する場合の設定
-
 debezium.sink.type=pubsub
-debezium.sink.pubsub.project.id=prj-dev-xuan-cloud-pubsub-poc
+debezium.sink.pubsub.project.id=emulator
+debezium.sink.pubsub.address=localhost:8681
 
 debezium.source.connector.class=io.debezium.connector.postgresql.PostgresConnector
 debezium.source.plugin.name=pgoutput
