@@ -16,8 +16,8 @@ def receive_messages(sqs_client, queue_url, max_number_of_messages = 10)
   )
 
   if response.messages.count.zero?
-    puts "No messages to receive, or all messages have already " \
-      "been previously received."
+    # puts "No messages to receive, or all messages have already " \
+    #   "been previously received."
     return
   end
 
@@ -45,7 +45,7 @@ def run_me
 
   sqs_client = Aws::SQS::Client.new(region: region)
 
-  puts "Receiving messages from queue '#{queue_name}'..."
+  # puts "Receiving messages from queue '#{queue_name}'..."
 
   receive_messages(sqs_client, queue_url, max_number_of_messages)
 end
