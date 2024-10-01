@@ -2,7 +2,7 @@
 require "aws-sdk-sqs"
 require "aws-sdk-sts"
 
-def consume_messages(sqs_client, queue_url)
+def consume_message(sqs_client, queue_url)
   response = sqs_client.receive_message(
     queue_url: queue_url,
     max_number_of_messages: 1
@@ -26,16 +26,13 @@ end
 def main
   region = "ap-northeast-1"
   queue_name = "ogasawara-sample-standard"
-  max_number_of_messages = 10
 
   sts_client = Aws::STS::Client.new(region: region)
-
   queue_url = "https://sqs." + region + ".amazonaws.com/" +
     sts_client.get_caller_identity.account + "/" + queue_name
 
   sqs_client = Aws::SQS::Client.new(region: region)
-
-  consume_messages(sqs_client, queue_url)
+  consume_message(sqs_client, queue_url)
 end
 
 # 1秒ごとにrun_meを実行
