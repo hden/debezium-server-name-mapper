@@ -16,6 +16,25 @@ docker compose up
 
 ## debezium-serverの起動
 
+.envなどで以下の設定を行なう
+
+```sh
+export DEBEZIUM_VERSION=2.7
+export AWS_ENDPOINT_URL=http://localhost:4567
+export AWS_PROFILE=localstack
+```
+
+~/.aws/credentials に localstackという名前でdummyのクレデンシャルを設定する
+
+```
+[localstack]
+aws_access_key_id = dummy
+aws_secret_access_key = dummy
+region = us-east-1
+```
+
+アプリを起動する
+
 ```sh
 mvn clean install
 java -jar target/quarkus-app/quarkus-run.jar
