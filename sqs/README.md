@@ -14,6 +14,13 @@ cd sqs
 docker compose up
 ```
 
+## debezium-serverの起動
+
+```sh
+mvn clean install
+java -jar target/quarkus-app/quarkus-run.jar
+```
+
 ## awslocalコマンドでの操作
 
 https://docs.localstack.cloud/user-guide/aws/sqs/

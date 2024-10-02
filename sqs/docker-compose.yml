@@ -1,8 +1,15 @@
-version: "3.8"
-
+version: '2.1'
 services:
-  localstack:
-    container_name: "localstack_sqs"
+  db:
+    image: quay.io/debezium/example-postgres:${DEBEZIUM_VERSION}
+    ports:
+     - 5432:5432
+    environment:
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=postgres
+
+  localstack-sqs:
+    container_name: "localstack-sqs"
     image: localstack/localstack
     ports:
       - "127.0.0.1:4566:4566"            # LocalStack Gateway
