@@ -54,7 +54,7 @@ region = us-east-1
 この状態でアプリを起動するとdebeziumがlocalstackに接続できるようになります。
 
 ```sh
-mvn clean install
+mvn clean install -Plocal
 java -jar target/quarkus-app/quarkus-run.jar
 ```
 
@@ -96,7 +96,7 @@ docker compose up db
 
 ```sh
 cd sqs
-mvn clean install
+mvn clean install -Pdev
 AWS_PROFILE=sms-xuan-dev-sqs java -jar target/quarkus-app/quarkus-run.jar
 ```
 
