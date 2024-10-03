@@ -29,7 +29,7 @@ end
 
 def main
   region = "ap-northeast-1"
-  queue_name = "ogasawara-sample-standard"
+  queue_name = "ogasawara-sample.fifo"
 
   sts_client = Aws::STS::Client.new(region: region)
   queue_url = "https://sqs." + region + ".amazonaws.com/" +
