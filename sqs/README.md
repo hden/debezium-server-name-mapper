@@ -37,13 +37,9 @@ bundle exec ruby initializer_local.rb
 
 ```sh
 cd sqs
-touch .envrc
-echo <<EOF > .envrc
 export DEBEZIUM_VERSION=2.7
-export AWS_ENDPOINT_URL=http://localhost:4567
+export AWS_ENDPOINT_URL="http://localhost:4567"
 export AWS_PROFILE=localstack
-EOF
-direnv allow
 ```
 
 また、 ~/.aws/credentials に localstackという名前で以下のクレデンシャルを設定する
@@ -87,7 +83,7 @@ awslocal sqs delete-message --queue-url http://sqs.us-east-1.localhost.localstac
 
 まずapplication.propertiesを入れ替えてください。
 
-TODO: add properties
+<!-- これ、フラグでapplication.propertiesを切り返したいのだが -->
 
 次にDBを起動してください
 
@@ -101,7 +97,16 @@ docker compose up db
 ```sh
 cd sqs
 mvn clean install
-AWS_PROFILE=sms-xuan-dev java -jar target/quarkus-app/quarkus-run.jar # dev環境のAWSアカウントを向けるようにprofile（sms-xuan-dev）をあらかじめ用意しておく必要があるので注意
+AWS_PROFILE=sms-xuan-dev-sqs java -jar target/quarkus-app/quarkus-run.jar
+```
+
+ただし、~/.aws/credentialsに以下のようなIAMユーザのクレデンシャルの設定が必要です（ssoだとうまく動かないので注意）
+
+```
+[sms-xuan-dev-sqs]
+aws_access_key_id = <access-key>
+aws_secret_access_key = <secret-key>
+region = ap-northeast-1
 ```
 
 これでdebeziumのsinkをAWS上のSQSに向けることができます。
