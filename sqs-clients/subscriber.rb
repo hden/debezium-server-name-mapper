@@ -5,7 +5,7 @@ require "aws-sdk-sts"
 def consume_message(sqs_client, queue_url)
   response = sqs_client.receive_message(
     queue_url: queue_url,
-    max_number_of_messages: 1
+    max_number_of_messages: 10 # なるべく一気にたくさんのmesasgeを取得させたい（最大10）
   )
   return if response.messages.count.zero?
 
@@ -40,8 +40,7 @@ def main
 end
 
 puts "commited at, received at, create to receive duration(ms)"
-# 1秒ごとにrun_meを実行
-# どうやらSQSにはポーリングが必要らしい…
+# SQSはポーリングが必要なので短い時間角で処理を実行させる
 loop do
   main
   sleep 0.01 # 10ms
