@@ -1,7 +1,6 @@
 
 require "aws-sdk-sqs"
 require "aws-sdk-sts"
-# require 'pry'
 
 def consume_message(sqs_client, queue_url)
   response = sqs_client.receive_message(
