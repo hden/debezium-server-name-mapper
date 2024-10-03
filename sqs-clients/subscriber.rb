@@ -44,5 +44,5 @@ puts "commited at, received at, create to receive duration(ms)"
 # どうやらSQSにはポーリングが必要らしい…
 loop do
   main
-  sleep 1
+  sleep 0.01 # 10ms
 end
