@@ -9,8 +9,8 @@ def consume_message(sqs_client, queue_url)
   )
   return if response.messages.count.zero?
 
+  received_at = Time.now # 他の処理で時間がかかると結果がブレるのでlistenしたら即時間を計測
   response.messages.each do |message|
-    received_at = Time.now # 他の処理で時間がかかると結果がブレるのでlistenしたら即時間を計測
     parsed_body = JSON.parse(message.body)
     created_at = parsed_body["payload"]["after"]["created_at"]
     created_at_parsed_utc = Time.parse(created_at)
