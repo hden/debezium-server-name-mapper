@@ -19,6 +19,9 @@ def consume_message(sqs_client, queue_url)
     created_at_parsed_jtc = created_at_parsed_utc.getlocal("+09:00")
     create_receive_duration = received_at - created_at_parsed_jtc
     puts "#{created_at_parsed_jtc},#{received_at},#{(create_receive_duration * 1000).to_i}"
+
+    sleep 0.3 # 本処理として 300ms かかるとしよう
+
     measure_time do
       sqs_client.delete_message(
         queue_url: queue_url,
