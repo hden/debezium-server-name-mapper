@@ -50,10 +50,10 @@ def measure_time
   start_time = Time.now
   yield  # ブロック内の処理を実行
   end_time = Time.now
-  elapsed_time = end_time - start_time
+  elapsed_time = (end_time - start_time)*1000 # ミリ秒
 
   if ENV['DEBUG'] == 'true'
-    puts "Processing time: #{elapsed_time} seconds"
+    puts "Processing time: #{elapsed_time} milliseconds"
   end
 end
 
