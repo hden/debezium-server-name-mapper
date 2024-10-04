@@ -35,7 +35,8 @@ rescue StandardError => e
 end
 
 def main
-  queue_name = "ogasawara-sample.fifo"
+  # queue_name = "ogasawara-sample.fifo"
+  queue_name = "ogasawara-sample-standard"
   region = "ap-northeast-1"
   queue_url = "https://sqs.#{region}.amazonaws.com/356585129680/" + queue_name
   sqs_client = Aws::SQS::Client.new(region: region)
