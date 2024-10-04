@@ -1,6 +1,7 @@
 require "google/cloud/pubsub"
 # require 'pry'
-subscription_id = "baz"
+subscription_id = "baz-fifo" # fifoなsubscription
+# subscription_id = "baz" #
 
 pubsub = Google::Cloud::Pubsub.new(
   project_id: "prj-dev-xuan-cloud-pubsub-poc",
@@ -21,7 +22,7 @@ subscriber   = subscription.listen do |received_message|
 end
 
 subscriber.start
-# Let the main thread sleep for 60 seconds so the thread for listening
+# Let the main thread sleep so the thread for listening
 # messages does not quit
-sleep 60
+sleep 600 # 10分
 subscriber.stop.wait!
