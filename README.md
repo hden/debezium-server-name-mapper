@@ -29,7 +29,11 @@ $ docker compose up
 In another terminal build the custom naming policy class and the runner JAR to start the application:
 
 ```
-$ mvn clean install
+<!-- gcpと繋ぐ場合 -->
+$ mvn clean install -Pdev
+
+<!-- localのemulatorと繋ぐ場合 -->
+$ mvn clean install -Plocal
 ```
 
 Create a topic (`foobar`) and a subscription (`baz`):
