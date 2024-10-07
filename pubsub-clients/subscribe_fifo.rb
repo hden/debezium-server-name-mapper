@@ -17,7 +17,6 @@ subscriber   = subscription.listen do |received_message|
   created_at_parsed_jtc = created_at_parsed_utc.getlocal("+09:00")
   create_receive_duration = received_at - created_at_parsed_jtc
 
-  puts "ordering key: #{received_message.ordering_key}"
   puts "#{created_at_parsed_jtc},#{received_message.publish_time},#{received_at},#{(create_receive_duration * 1000).to_i}"
   received_message.acknowledge!
 end
