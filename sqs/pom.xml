@@ -28,7 +28,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <version.debezium>2.7.1.Final</version.debezium>
+        <version.debezium>2.7.3.Final</version.debezium>
         <version.debezium.tag>2.7</version.debezium.tag>
         <version.quarkus>3.2.3.Final</version.quarkus>
         <version.jandex>1.2.3</version.jandex>
@@ -45,7 +45,7 @@
             </dependency>
             <dependency>
                 <groupId>io.debezium</groupId>
-                <artifactId>debezium-server-pubsub</artifactId>
+                <artifactId>debezium-server-sqs</artifactId>
                 <version>${version.debezium}</version>
             </dependency>
             <dependency>
@@ -63,7 +63,7 @@
             </dependency>
             <dependency>
                 <groupId>io.debezium</groupId>
-                <artifactId>debezium-server-pubsub</artifactId>
+                <artifactId>debezium-server-sqs</artifactId>
             </dependency>
             <dependency>
                 <groupId>io.debezium</groupId>
